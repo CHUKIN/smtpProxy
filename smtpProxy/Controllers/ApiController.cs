@@ -23,10 +23,10 @@ namespace smtpProxy.Controllers
             {
                 var client = new SmtpClient("smtp.gmail.com", 587)
                 {
-                    Credentials = new NetworkCredential("dmitriyatamanchuk@gmail.com", "dima852963?"),
+                    Credentials = new NetworkCredential("dmitriyatamanchuktest@gmail.com", "q80508822002q"),
                     EnableSsl = true
                 };
-                client.Send("dmitriyatamanchuk@gmail.com", to, subject, message);
+                client.Send("dmitriyatamanchuktest@gmail.com", to, subject, message);
             }
             catch (Exception ex)
             {
