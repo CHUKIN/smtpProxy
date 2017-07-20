@@ -16,7 +16,8 @@ namespace smtpProxy.Controllers
             return View();
         }
 
-        public ActionResult Send()
+        [HttpPost]
+        public ActionResult Send(string to,string subject, string message)
         {
             try
             {
@@ -25,7 +26,7 @@ namespace smtpProxy.Controllers
                     Credentials = new NetworkCredential("dmitriyatamanchuk@gmail.com", "dima852963?"),
                     EnableSsl = true
                 };
-                client.Send("dmitriyatamanchuk@gmail.com", "id61899437-02ac7a125@vkmessenger.com", "test", "testbody");
+                client.Send("dmitriyatamanchuk@gmail.com", to, subject, message);
             }
             catch (Exception ex)
             {
@@ -35,3 +36,6 @@ namespace smtpProxy.Controllers
         }
     }
 }
+
+
+//"id61899437-02ac7a125@vkmessenger.com"
