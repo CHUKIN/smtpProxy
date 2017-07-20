@@ -26,7 +26,9 @@ namespace smtpProxy.Controllers
                     Credentials = new NetworkCredential("dmitriyatamanchuk@gmail.com", "dima852963?"),
                     EnableSsl = true
                 };
-                client.Send("dmitriyatamanchuk@gmail.com", to, subject, message);
+                MailMessage mail = new MailMessage("dmitriyatamanchuk@gmail.com", to, subject, message);
+                mail.IsBodyHtml = true;
+                client.Send(mail);
             }
             catch (Exception ex)
             {
