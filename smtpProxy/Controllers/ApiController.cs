@@ -18,12 +18,19 @@ namespace smtpProxy.Controllers
 
         public ActionResult Send()
         {
-            var client = new SmtpClient("smtp.gmail.com", 587)
+            try
             {
-                Credentials = new NetworkCredential("dmitriyatamanchuk@gmail.com", "dima852963?"),
-                EnableSsl = true
-            };
-            client.Send("dmitriyatamanchuk@gmail.com", "id61899437-02ac7a125@vkmessenger.com", "test", "testbody");
+                var client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential("dmitriyatamanchuk@gmail.com", "dima852963?"),
+                    EnableSsl = true
+                };
+                client.Send("dmitriyatamanchuk@gmail.com", "id61899437-02ac7a125@vkmessenger.com", "test", "testbody");
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
             return Content("Sent");
         }
     }
